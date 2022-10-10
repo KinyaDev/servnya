@@ -6,14 +6,14 @@ const { Server } = require("socket.io");
 
 const io = new Server(server, {
   cors: {
-    origin: "https://kinyadev.github.io",
+    origin: "https://kinyadev.github.io/lang",
     credentials: true,
     methods: ["GET", "POST"],
   },
 });
 
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://kinyadev.github.io");
+  res.header("Access-Control-Allow-Origin", "https://kinyadev.github.io/lang");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
