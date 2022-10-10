@@ -31,11 +31,9 @@ io.on("connection", (socket) => {
 // loadRoutes(() => {});
 
 app.get("/", (req, res) => {
-  res.send("OK");
+  res.send(io.sockets.sockets.size);
 });
 
 server.listen(process.env.PORT, () => {
   console.log("Online!");
 });
-
-// hey
