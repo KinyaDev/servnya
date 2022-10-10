@@ -1,39 +1,15 @@
 const express = require("express");
 const app = express();
-const fs = require("fs");
 const http = require("http");
-const { Server } = require("socket.io");
 const server = http.createServer(app);
+const { Server } = require("socket.io");
 const io = new Server(server);
-
-// childprocess.exec("npm install", (err, stdo, stderr) => {
-//   if (err) throw err;
-//   console.log(stdo, stderr);
-// });
-
-// function loadRoutes(callback) {
-//   let files = fs.readdirSync(`${__dirname}/src/routes`);
-//   files.forEach((f) => {
-//     let n = f.split(".");
-//     if (n[1] === ".js") {
-//       app.use(`/${n[0]}`, require(`${__dirname}/src/routes/${f}`));
-//       console.log(`Loading ${f}`);
-//     }
-//   });
-
-//   callback();
-// }
-
-io.on("connection", (socket) => {
-  console.log("a user connected");
-  socket.emit("okay");
-});
 
 app.use(function (req, res, next) {
   // Website you wish to allow to connect
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://kinyadev.github.io/lang"
+    "https://kinyadev.github.io/lang/"
   );
 
   // Request methods you wish to allow
@@ -58,10 +34,33 @@ app.use(function (req, res, next) {
 
 // loadRoutes(() => {});
 
+io.on("connection", (socket) => {
+  console.log("a user connected");
+  io.emit("okay", socket);
+});
+
 app.get("/", (req, res) => {
-  res.send(io.sockets.sockets.size);
+  res.send("OK");
 });
 
 server.listen(process.env.PORT, () => {
-  console.log("Online!");
+  console.log("listening on *:" + process.env.PORT);
 });
+
+// childprocess.exec("npm install", (err, stdo, stderr) => {
+//   if (err) throw err;
+//   console.log(stdo, stderr);
+// });
+
+// function loadRoutes(callback) {
+//   let files = fs.readdirSync(`${__dirname}/src/routes`);
+//   files.forEach((f) => {
+//     let n = f.split(".");
+//     if (n[1] === ".js") {
+//       app.use(`/${n[0]}`, require(`${__dirname}/src/routes/${f}`));
+//       console.log(`Loading ${f}`);
+//     }
+//   });
+
+//   callback();
+// }
