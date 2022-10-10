@@ -16,10 +16,6 @@ app.get("/", (req, res) => {
   res.send("OK");
 });
 
-server.listen(process.env.PORT, () => {
-  console.log("listening on *:" + process.env.PORT);
-});
-
 function loadRoutes(callback) {
   let files = fs.readdirSync(`${__dirname}/src/routes`);
   files.forEach((f) => {
@@ -34,3 +30,7 @@ function loadRoutes(callback) {
 }
 
 loadRoutes(() => {});
+
+server.listen(process.env.PORT, () => {
+  console.log("listening on *:" + process.env.PORT);
+});
