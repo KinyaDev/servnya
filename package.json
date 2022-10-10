@@ -1,16 +1,13 @@
 {
   "dependencies": {
-    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "hash.js": "^1.1.7",
-    "socket.io": "^4.5.2",
-    "sqlite3": "^5.1.2"
+    "socket.io": "^4.5.2"
   },
   "name": "nyaara-server",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "npm install && node app.js",
     "start": "node app.js"
   },
   "repository": {
