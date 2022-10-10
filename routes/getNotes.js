@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
     r1 += recommend[k];
   });
 
-  res.json({ note: r1 / keys.length + 1 });
+  res.json({ note: r1 / (keys.length + 1) });
 });
 
 module.exports = router;
