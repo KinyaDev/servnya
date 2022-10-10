@@ -29,5 +29,9 @@ childprocess.exec("npm install", (err, stdo, stderr) => {
 
   loadRoutes(() => {});
 
+  app.get("/", (req, res) => {
+    res.send("OK");
+  });
+
   server.listen(8080 || process.env.PORT);
 });
