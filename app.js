@@ -1,7 +1,5 @@
 const express = require("express");
 const app = express();
-const http = require("http");
-const server = http.createServer(app);
 
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "https://kinyadev.github.io/lang");
@@ -34,6 +32,6 @@ app.get("/", (req, res) => {
 app.use("/getNotes", require("./routes/getNotes"));
 app.use("/recommend", require("./routes/recommend"));
 
-server.listen(process.env.PORT, () => {
+app.listen(process.env.PORT, () => {
   console.log("listening on *:" + process.env.PORT);
 });
