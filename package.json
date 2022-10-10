@@ -5,5 +5,24 @@
     "hash.js": "^1.1.7",
     "socket.io": "^4.5.2",
     "sqlite3": "^5.1.2"
-  }
+  },
+  "name": "nyaara-server",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KinyaDev/servnya.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KinyaDev/servnya/issues"
+  },
+  "homepage": "https://github.com/KinyaDev/servnya#readme",
+  "description": ""
 }
