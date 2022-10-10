@@ -3,7 +3,14 @@ const app = express();
 const http = require("http");
 const server = http.createServer(app);
 const { Server } = require("socket.io");
-const io = new Server(server);
+const io = new Server(server, {
+  cors: {
+    origin: "https://kinyadev.github.io/lang",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Access-Control-Allow-Origin"],
+    credentials: true,
+  },
+});
 
 app.use(function (req, res, next) {
   // Website you wish to allow to connect
