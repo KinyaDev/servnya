@@ -9,11 +9,8 @@ let save = () => {
   );
 };
 
-router.get("/:l", (req, res) => {
-  let note = req.params.l;
-  var ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
-
-  recommend[ip] = note;
+router.get("/:id/:l", (req, res) => {
+  recommend[req.params.id] = req.params.l;
   save();
 });
 

@@ -6,7 +6,7 @@ router.get("/", (req, res) => {
   let keys = Object.keys(recommend);
 
   keys.forEach((k) => {
-    r1 += k;
+    r1 += recommend[k];
   });
 
   res.json({ note: r1 / keys.length });
