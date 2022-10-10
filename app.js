@@ -11,27 +11,29 @@ const server = http.createServer(app);
 //   console.log(stdo, stderr);
 // });
 
-function loadRoutes(callback) {
-  let files = fs.readdirSync(`${__dirname}/src/routes`);
-  files.forEach((f) => {
-    let n = f.split(".");
-    if (n[1] === ".js") {
-      app.use(`/${n[0]}`, require(`${__dirname}/src/routes/${f}`));
-      console.log(`Loading ${f}`);
-    }
-  });
+// function loadRoutes(callback) {
+//   let files = fs.readdirSync(`${__dirname}/src/routes`);
+//   files.forEach((f) => {
+//     let n = f.split(".");
+//     if (n[1] === ".js") {
+//       app.use(`/${n[0]}`, require(`${__dirname}/src/routes/${f}`));
+//       console.log(`Loading ${f}`);
+//     }
+//   });
 
-  callback();
-}
+//   callback();
+// }
 
 io.on("connection", (socket) => {
   console.log("a user connected");
 });
 
-loadRoutes(() => {});
+// loadRoutes(() => {});
 
 app.get("/", (req, res) => {
   res.send("OK");
 });
 
-server.listen(8080 || process.env.PORT);
+server.listen(process.env.PORT, () => {
+  console.log("Online!");
+});
