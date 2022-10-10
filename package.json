@@ -9,7 +9,6 @@
   "name": "nyaara-server",
   "version": "1.0.0",
   "main": "app.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
@@ -18,7 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/KinyaDev/servnya.git"
   },
-  "author": "",
+  "author": "KinyaDev",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/KinyaDev/servnya/issues"
