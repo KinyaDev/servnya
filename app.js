@@ -31,7 +31,10 @@ io.on("connection", (socket) => {
 
 app.use(function (req, res, next) {
   // Website you wish to allow to connect
-  res.setHeader("Access-Control-Allow-Origin", "https://kinya.github.io/lang");
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://kinyadev.github.io/lang"
+  );
 
   // Request methods you wish to allow
   res.setHeader(
