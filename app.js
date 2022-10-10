@@ -5,14 +5,20 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server, {
   cors: {
-    origin: "https://kinyadev.github.io/",
-    methods: ["GET", "POST"],
-    allowedHeaders: ["Access-Control-Allow-Origin"],
+    origin: "https://kinyadev.github.io/lang",
     credentials: true,
+    methods: ["GET", "POST"],
   },
 });
 
-// loadRoutes(() => {});
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "https://kinyadev.github.io/lang");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 
 io.on("connection", (socket) => {
   console.log("a user connected");
