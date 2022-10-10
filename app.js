@@ -16,20 +16,23 @@ app.get("/", (req, res) => {
   res.send("OK");
 });
 
-function loadRoutes(callback) {
-  let files = fs.readdirSync(`${__dirname}/src/routes`);
-  files.forEach((f) => {
-    let n = f.split(".");
-    if (n[1] === ".js") {
-      app.use(`/${n[0]}`, require(`${__dirname}/src/routes/${f}`));
-      console.log(`Loading ${f}`);
-    }
-  });
+// function loadRoutes(callback) {
+//   let files = fs.readdirSync(`${__dirname}/src/routes`);
+//   files.forEach((f) => {
+//     let n = f.split(".");
+//     if (n[1] === ".js") {
+//       app.use(`/${n[0]}`, require(`${__dirname}/src/routes/${f}`));
+//       console.log(`Loading ${f}`);
+//     }
+//   });
 
-  callback();
-}
+//   callback();
+// }
 
-loadRoutes(() => {});
+// loadRoutes(() => {});
+
+app.use("/getNotes", require("./routes/getNotes"));
+app.use("/recommend", require("./routes/recommend"));
 
 server.listen(process.env.PORT, () => {
   console.log("listening on *:" + process.env.PORT);
