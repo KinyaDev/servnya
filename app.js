@@ -3,9 +3,6 @@ const app = express();
 
 const bodyParser = require("body-parser");
 
-app.use(bodyParser);
-app.use(bodyParser.urlencoded({ extended: false }));
-
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "https://kinyadev.github.io");
   res.header(
