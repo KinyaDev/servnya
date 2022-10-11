@@ -9,7 +9,7 @@ let save = () => {
   );
 };
 
-router.post("/", bodyParser, (req, res) => {
+router.post("/", (req, res) => {
   recommend.user.push(req.body.id);
   save();
 
@@ -45,5 +45,4 @@ router.delete("/", (req, res) => {
   recommend.user = recommend.user.filter((g) => g !== req.body.id);
   save();
 });
-
 module.exports = router;
