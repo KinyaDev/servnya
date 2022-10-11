@@ -34,7 +34,6 @@ app.get("/", (req, res) => {
 
 // loadRoutes(() => {});
 
-app.use("/getNotes", require("./routes/getNotes"));
 app.use("/recommend", require("./routes/recommend"));
 
 app.listen(process.env.PORT, () => {
